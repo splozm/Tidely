@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_tide_compact"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/widget_background"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Next High -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tide_high"
+            android:textSize="9sp"
+            android:textColor="@color/ocean_teal"
+            android:textAllCaps="true"
+            android:letterSpacing="0.2"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/tvHighTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="--:--"
+            android:textSize="22sp"
+            android:textColor="@color/ocean_deep"
+            android:fontFamily="sans-serif-medium"
+            android:fontFeatureSettings="tnum" />
+
+        <TextView
+            android:id="@+id/tvHighHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="- m"
+            android:textSize="11sp"
+            android:textColor="@color/ocean_blue"
+            android:fontFeatureSettings="tnum" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="12dp"
+        android:background="@color/border_light" />
+
+    <!-- Next Low -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tide_low"
+            android:textSize="9sp"
+            android:textColor="@color/text_tertiary"
+            android:textAllCaps="true"
+            android:letterSpacing="0.2"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/tvLowTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="--:--"
+            android:textSize="22sp"
+            android:textColor="@color/ocean_deep"
+            android:fontFamily="sans-serif-medium"
+            android:fontFeatureSettings="tnum" />
+
+        <TextView
+            android:id="@+id/tvLowHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="- m"
+            android:textSize="11sp"
+            android:textColor="@color/ocean_blue"
+            android:fontFeatureSettings="tnum" />
+    </LinearLayout>
+
+</LinearLayout>

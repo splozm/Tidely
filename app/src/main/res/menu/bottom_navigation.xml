@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_tides"
+        android:title="@string/nav_tides"
+        android:icon="@drawable/ic_waves" />
+    <item
+        android:id="@+id/nav_stations"
+        android:title="@string/nav_stations"
+        android:icon="@drawable/ic_location" />
+    <item
+        android:id="@+id/nav_settings"
+        android:title="@string/nav_settings"
+        android:icon="@drawable/ic_settings" />
+</menu>
