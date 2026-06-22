@@ -88,10 +88,10 @@ dependencies {
     // Charts (MPAndroidChart)
     implementation("com.github.PhilJay:MPAndroidChart:3.1.0")
 
-    // Firebase (Analytics & Crashlytics)
-    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    // Firebase (Analytics & Crashlytics) - TODO: Add google-services.json to enable
+    // implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    // implementation("com.google.firebase:firebase-analytics-ktx")
+    // implementation("com.google.firebase:firebase-crashlytics-ktx")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
