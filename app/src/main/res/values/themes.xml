@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.Tidely" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/ocean_teal</item>
+        <item name="colorOnPrimary">@color/surface_white</item>
+        <item name="colorPrimaryContainer">@color/ocean_deep</item>
+        <item name="colorOnPrimaryContainer">@color/surface_white</item>
+
+        <item name="colorSecondary">@color/ocean_blue</item>
+        <item name="colorOnSecondary">@color/surface_white</item>
+
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+
+        <item name="colorSurface">@color/surface_white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <item name="android:statusBarColor">@color/background_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Tidely" parent="Base.Theme.Tidely" />
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.Tidely.Label" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="TextAppearance.Tidely.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Tidely.TideTime" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_tide_time</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <style name="TextAppearance.Tidely.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+</resources>

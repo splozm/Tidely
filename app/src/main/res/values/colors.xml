@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="ocean_deep">#0c2340</color>
+    <color name="ocean_teal">#2d8a9e</color>
+    <color name="ocean_blue">#1a4a6e</color>
+
+    <!-- Background & Surface -->
+    <color name="background_light">#f5f5f5</color>
+    <color name="surface_white">#ffffff</color>
+
+    <!-- Borders & Dividers -->
+    <color name="border_light">#e6e8eb</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#0c2340</color>
+    <color name="text_secondary">#1a4a6e</color>
+    <color name="text_tertiary">#7a8a9a</color>
+
+    <!-- State Colors -->
+    <color name="tide_high">#0c2340</color>
+    <color name="tide_low">#2d8a9e</color>
+    <color name="tide_rising">#2d8a9e</color>
+    <color name="tide_falling">#2d8a9e</color>
+</resources>

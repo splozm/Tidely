@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tidely</string>
+
+    <!-- Navigation -->
+    <string name="nav_tides">Tides</string>
+    <string name="nav_stations">Stations</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Tide States -->
+    <string name="tide_state_rising">Rising</string>
+    <string name="tide_state_falling">Falling</string>
+    <string name="tide_high">High</string>
+    <string name="tide_low">Low</string>
+    <string name="next_high">Next high</string>
+    <string name="next_low">Next low</string>
+    <string name="following_high">Following high</string>
+    <string name="following_low">Following low</string>
+
+    <!-- Station Labels -->
+    <string name="label_station">Station</string>
+    <string name="label_choose_station">Choose station</string>
+    <string name="station_count">607 UK tidal stations</string>
+    <string name="search_stations">Search stations</string>
+    <string name="station_selected">Selected</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_location">Location</string>
+    <string name="settings_use_gps">Use GPS</string>
+    <string name="settings_gps_description">Auto-pick nearest station</string>
+    <string name="settings_station_override">Station override</string>
+    <string name="settings_about">About</string>
+    <string name="about_description">Tidal predictions sourced from the ADMIRALTY UK Tidal API, operated by the UK Hydrographic Office. 607 stations across the United Kingdom.</string>
+    <string name="label_version">Version</string>
+    <string name="label_build">Build</string>
+    <string name="version_number">1.0.0</string>
+    <string name="build_info">Android · API 26+</string>
+
+    <!-- Widget -->
+    <string name="widget_name">Tidely Widget</string>
+    <string name="widget_description">Shows next high and low tide times</string>
+
+    <!-- Time Format -->
+    <string name="time_format_24h">HH:mm</string>
+    <string name="height_format">%s m</string>
+
+    <!-- Errors -->
+    <string name="error_no_location">Location permission required</string>
+    <string name="error_no_data">Unable to fetch tide data</string>
+    <string name="error_no_internet">No internet connection</string>
+</resources>

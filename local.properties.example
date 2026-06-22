@@ -1,0 +1,5 @@
+# Copy this file to local.properties and add your API key
+# NEVER commit local.properties to version control
+
+# Get your API key from: https://admiraltyapi.portal.azure-api.net/
+ADMIRALTY_API_KEY=your_api_key_here
