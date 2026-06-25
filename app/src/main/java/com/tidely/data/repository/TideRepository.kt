@@ -33,7 +33,7 @@ class TideRepository(
         val response = apiService.getAllStations(BuildConfig.ADMIRALTY_API_KEY)
         val stations = response.features.map { feature ->
             Station(
-                id = feature.id,
+                id = feature.properties.id,  // ID is in properties, not at feature level
                 name = feature.properties.name,
                 country = feature.properties.country,
                 latitude = feature.geometry.coordinates[1],
