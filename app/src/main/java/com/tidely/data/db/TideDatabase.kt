@@ -10,7 +10,7 @@ import com.tidely.data.model.TidalEvent
 
 @Database(
     entities = [Station::class, TidalEvent::class],
-    version = 1,
+    version = 2,  // Bumped: TidalEvent now uses composite primary key
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -29,7 +29,9 @@ abstract class TideDatabase : RoomDatabase() {
                     context.applicationContext,
                     TideDatabase::class.java,
                     "tide_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()  // MVP: recreate DB on schema change
+                    .build()
                 INSTANCE = instance
                 instance
             }

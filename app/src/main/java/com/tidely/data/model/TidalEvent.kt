@@ -4,10 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity(tableName = "tidal_events")
+@Entity(
+    tableName = "tidal_events",
+    primaryKeys = ["stationId", "dateTime"]  // Composite key prevents duplicates
+)
 data class TidalEvent(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
     val stationId: String,
     val eventType: TideType,
     val dateTime: Date,

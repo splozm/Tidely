@@ -71,7 +71,8 @@ class TideEventAdapter : ListAdapter<TidalEvent, TideEventAdapter.ViewHolder>(Di
 
     private class DiffCallback : DiffUtil.ItemCallback<TidalEvent>() {
         override fun areItemsTheSame(oldItem: TidalEvent, newItem: TidalEvent): Boolean {
-            return oldItem.id == newItem.id
+            // Use composite key: stationId + dateTime
+            return oldItem.stationId == newItem.stationId && oldItem.dateTime == newItem.dateTime
         }
 
         override fun areContentsTheSame(oldItem: TidalEvent, newItem: TidalEvent): Boolean {

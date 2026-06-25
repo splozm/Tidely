@@ -103,9 +103,10 @@ class TidesFragment : Fragment() {
 
         viewModel.tidalEvents.observe(viewLifecycleOwner) { events ->
             adapter.submitList(events)
-            // Hide chart until we implement it - prevents "No chart data" message
-            tideChart.visibility = if (events.isNotEmpty()) View.GONE else View.GONE
-            // TODO: Populate chart with tide curve data
+            // Hide chart until we implement it (prevents "No chart data" message)
+            // When we have data, still hide it until chart is implemented
+            tideChart.visibility = View.GONE
+            // TODO: Populate chart with tide curve data, then show it
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
