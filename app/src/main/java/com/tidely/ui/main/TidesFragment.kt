@@ -55,11 +55,13 @@ class TidesFragment : Fragment() {
         val preferencesManager = PreferencesManager(requireContext())
         val locationHelper = LocationHelper(requireContext())
 
-        viewModel = MainViewModel(
-            repository = app.tideRepository,
-            preferencesManager = preferencesManager,
-            locationHelper = locationHelper
+        // Use a Factory to provide dependencies to the ViewModel
+        val factory = MainViewModelFactory(
+            app.tideRepository,
+            preferencesManager,
+            locationHelper
         )
+        viewModel = androidx.lifecycle.ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         setupViews(view)
         setupRecyclerView()

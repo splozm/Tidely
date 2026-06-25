@@ -38,13 +38,14 @@ class MainViewModel(
     val error: LiveData<String?> = _error
 
     init {
-        loadCurrentStation()
+        // Remove loadCurrentStation() from init to avoid double-calling during view creation
     }
 
     fun loadCurrentStation() {
+        if (isLoading.value == true) return // Prevent concurrent loads
+
         viewModelScope.launch {
             _isLoading.value = true
-
             try {
                 // Check if stations are cached
                 val stationCount = repository.getStationCount()
@@ -73,7 +74,10 @@ class MainViewModel(
                 }
 
                 if (station != null) {
-                    setStation(station)  // This already calls loadTidalEvents internally
+                    _selectedStation.value = station
+                    preferencesManager.selectedStationId = station.id
+                    preferencesManager.selectedStationName = station.name
+                    loadTidalEvents(station.id)
                 } else {
                     _error.value = "No station selected. Please select a station from the Stations tab."
                 }
@@ -169,5 +173,19 @@ class MainViewModel(
                 _error.value = "Failed to find nearest station"
             }
         }
+    }
+}
+
+class MainViewModelFactory(
+    private val repository: TideRepository,
+    private val preferencesManager: PreferencesManager,
+    private val locationHelper: LocationHelper
+) : androidx.lifecycle.ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            return MainViewModel(repository, preferencesManager, locationHelper) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -63,9 +63,10 @@ class TideRepository(
         )
 
         // API returns array directly, not wrapped in object
+        // Use distinctBy to ensure no duplicates in the network response itself
         val events = response.map { dto ->
             dto.toTidalEvent(stationId)
-        }
+        }.distinctBy { it.dateTime.time }
 
         // Delete old events before inserting new ones
         val twoDaysAgo = Date(System.currentTimeMillis() - (2 * 24 * 60 * 60 * 1000))

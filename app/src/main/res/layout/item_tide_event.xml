@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.Tidely.TideTime"
         android:fontFeatureSettings="tnum"
+        android:layout_marginEnd="@dimen/spacing_sm"
         tools:text="14:32"
         app:layout_constraintEnd_toStartOf="@id/tvHeight"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,12 +48,12 @@
     <!-- Height -->
     <TextView
         android:id="@+id/tvHeight"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_md"
         android:textSize="@dimen/text_caption"
         android:textColor="@color/text_secondary"
         android:fontFeatureSettings="tnum"
+        android:gravity="end"
         tools:text="5.2 m"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
