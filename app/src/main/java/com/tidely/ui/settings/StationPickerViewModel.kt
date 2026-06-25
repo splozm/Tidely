@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.tidely.data.model.Station
 import com.tidely.data.repository.TideRepository
 import com.tidely.util.PreferencesManager
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class StationPickerViewModel(
@@ -34,11 +34,9 @@ class StationPickerViewModel(
     private fun loadStations() {
         viewModelScope.launch {
             _isLoading.value = true
-            try {
-                val stations = repository.getAllStations().first()
+            repository.getAllStations().collectLatest { stations ->
                 _allStations.value = stations
                 _filteredStations.value = stations
-            } finally {
                 _isLoading.value = false
             }
         }

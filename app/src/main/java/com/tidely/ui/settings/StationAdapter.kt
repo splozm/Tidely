@@ -44,7 +44,7 @@ class StationAdapter(
 
         init {
             itemView.setOnClickListener {
-                val position = bindingAdapterPosition
+                val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onStationClick(getItem(position))
                 }

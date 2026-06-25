@@ -50,7 +50,12 @@ class MainViewModel(
                 val stationCount = repository.getStationCount()
                 if (stationCount == 0) {
                     // First launch - fetch stations
-                    repository.fetchAndCacheStations()
+                    val result = repository.fetchAndCacheStations()
+                    if (result.isFailure) {
+                        _error.value = "Failed to fetch stations: ${result.exceptionOrNull()?.message}"
+                        _isLoading.value = false
+                        return@launch
+                    }
                 }
 
                 // Load selected station or find nearest
@@ -66,6 +71,8 @@ class MainViewModel(
                 if (station != null) {
                     setStation(station)
                     loadTidalEvents(station.id)
+                } else {
+                    _error.value = "No station selected. Please select a station from the Stations tab."
                 }
             } catch (e: Exception) {
                 _error.value = e.message ?: "Failed to load station"
