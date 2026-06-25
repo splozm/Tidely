@@ -1,7 +1,7 @@
 package com.tidely.data.api
 
 import com.tidely.data.api.response.StationResponse
-import com.tidely.data.api.response.TidalEventsResponse
+import com.tidely.data.api.response.TidalEventDto
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -19,5 +19,5 @@ interface AdmiraltyApiService {
         @Path("stationId") stationId: String,
         @Query("duration") durationDays: Int = 7,
         @Header("Ocp-Apim-Subscription-Key") apiKey: String
-    ): TidalEventsResponse
+    ): List<TidalEventDto>  // API returns array directly, not wrapped in object
 }

@@ -67,6 +67,12 @@ class TidesFragment : Fragment() {
         checkLocationPermission()
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Reload station when returning to this tab (in case user selected a new station)
+        viewModel.loadCurrentStation()
+    }
+
     private fun setupViews(view: View) {
         tvStationName = view.findViewById(R.id.tvStationName)
         tvTideState = view.findViewById(R.id.tvTideState)

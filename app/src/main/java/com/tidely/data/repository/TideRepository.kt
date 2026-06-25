@@ -62,7 +62,8 @@ class TideRepository(
             apiKey = BuildConfig.ADMIRALTY_API_KEY
         )
 
-        val events = response.events.map { dto ->
+        // API returns array directly, not wrapped in object
+        val events = response.map { dto ->
             dto.toTidalEvent(stationId)
         }
 
