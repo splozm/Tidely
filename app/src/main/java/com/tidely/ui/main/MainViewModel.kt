@@ -58,19 +58,22 @@ class MainViewModel(
                     }
                 }
 
-                // Load selected station or find nearest
-                val stationId = preferencesManager.selectedStationId
-                val station = if (stationId != null) {
-                    repository.getStationById(stationId)
-                } else if (preferencesManager.useGps) {
+                // Load station: GPS takes priority if enabled, otherwise use manual selection
+                val station = if (preferencesManager.useGps) {
+                    // GPS enabled - find nearest station
                     findNearestStation()
                 } else {
-                    null
+                    // GPS disabled - use manually selected station
+                    val stationId = preferencesManager.selectedStationId
+                    if (stationId != null) {
+                        repository.getStationById(stationId)
+                    } else {
+                        null
+                    }
                 }
 
                 if (station != null) {
-                    setStation(station)
-                    loadTidalEvents(station.id)
+                    setStation(station)  // This already calls loadTidalEvents internally
                 } else {
                     _error.value = "No station selected. Please select a station from the Stations tab."
                 }

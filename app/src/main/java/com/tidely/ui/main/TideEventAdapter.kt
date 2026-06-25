@@ -64,8 +64,8 @@ class TideEventAdapter : ListAdapter<TidalEvent, TideEventAdapter.ViewHolder>(Di
             // Time
             tvTime.text = timeFormat.format(event.dateTime)
 
-            // Height
-            tvHeight.text = context.getString(R.string.height_format, event.height.toString())
+            // Height - format to 1 decimal place
+            tvHeight.text = context.getString(R.string.height_format, String.format(Locale.UK, "%.1f", event.height))
         }
     }
 
