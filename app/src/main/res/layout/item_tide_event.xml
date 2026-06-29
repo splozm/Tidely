@@ -6,31 +6,32 @@
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/spacing_md">
 
-    <!-- Event Type Badge -->
+    <!-- Event Type (HIGH/LOW) -->
     <TextView
         android:id="@+id/tvEventType"
-        android:layout_width="wrap_content"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_tiny"
-        android:textAllCaps="true"
-        android:letterSpacing="0.18"
-        android:fontFamily="sans-serif-medium"
+        android:textAppearance="@style/TextAppearance.Tidely.Label"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold"
         tools:text="HIGH"
-        tools:textColor="@color/tide_high"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- Event Label (Next high / Following high) -->
     <TextView
         android:id="@+id/tvEventLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_md"
-        android:textSize="@dimen/text_small"
-        android:textColor="@color/text_secondary"
+        android:layout_marginStart="@dimen/spacing_sm"
+        android:textAppearance="@style/TextAppearance.Tidely.Label"
+        android:textColor="@color/text_tertiary"
         tools:text="Next high"
         app:layout_constraintStart_toEndOf="@id/tvEventType"
-        app:layout_constraintTop_toTopOf="@id/tvEventType"
-        app:layout_constraintBottom_toBottomOf="@id/tvEventType" />
+        app:layout_constraintEnd_toStartOf="@id/tvTime"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Time -->
     <TextView
@@ -38,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.Tidely.TideTime"
-        android:fontFeatureSettings="tnum"
-        android:layout_marginEnd="@dimen/spacing_sm"
+        android:textSize="22sp"
+        android:layout_marginEnd="@dimen/spacing_md"
         tools:text="14:32"
         app:layout_constraintEnd_toStartOf="@id/tvHeight"
         app:layout_constraintTop_toTopOf="parent"
@@ -48,21 +49,20 @@
     <!-- Height -->
     <TextView
         android:id="@+id/tvHeight"
-        android:layout_width="60dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_caption"
+        android:textAppearance="@style/TextAppearance.Tidely.Label"
         android:textColor="@color/text_secondary"
-        android:fontFeatureSettings="tnum"
         android:gravity="end"
         tools:text="5.2 m"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- Divider -->
+    <!-- Divider (Light) -->
     <View
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:background="@color/border_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

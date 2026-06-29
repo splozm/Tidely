@@ -20,6 +20,7 @@
     <!-- Station Labels -->
     <string name="label_station">Station</string>
     <string name="label_choose_station">Choose station</string>
+    <string name="today_header_format">TODAY · %s</string>
     <string name="station_count">607 UK tidal stations</string>
     <string name="search_stations">Search stations</string>
     <string name="station_selected">Selected</string>
@@ -43,7 +44,7 @@
 
     <!-- Time Format -->
     <string name="time_format_24h">HH:mm</string>
-    <string name="height_format">%s m</string>
+    <string name="height_format">%s M</string>
 
     <!-- Errors -->
     <string name="error_no_location">Location permission required</string>

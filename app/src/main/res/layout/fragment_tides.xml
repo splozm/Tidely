@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/surface_white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_md">
 
-        <!-- Header -->
+        <!-- Top Header -->
         <TextView
             android:id="@+id/labelStation"
             android:layout_width="wrap_content"
@@ -27,6 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"
             android:textAppearance="@style/TextAppearance.Tidely.Title"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
             tools:text="Newlyn, Cornwall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tideStateBadge"
@@ -50,20 +53,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/spacing_xs"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="10dp"
                 android:gravity="center">
 
                 <View
+                    android:id="@+id/vTideIndicator"
                     android:layout_width="6dp"
                     android:layout_height="6dp"
-                    android:layout_marginEnd="@dimen/spacing_xs"
+                    android:layout_marginEnd="6dp"
                     android:background="@drawable/tide_state_indicator" />
 
                 <TextView
                     android:id="@+id/tvTideState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_tiny"
+                    android:textSize="10sp"
                     android:textColor="@color/ocean_teal"
                     android:textAllCaps="true"
                     android:letterSpacing="0.15"
@@ -72,39 +77,51 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Chart Row Header -->
+        <TextView
+            android:id="@+id/tvChartHeaderLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textAppearance="@style/TextAppearance.Tidely.Label"
+            android:textColor="@color/text_tertiary"
+            tools:text="TODAY · MON 22 JUN"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStationName" />
+
+        <TextView
+            android:id="@+id/tvChartHeaderRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Tidely.Label"
+            android:textColor="@color/text_tertiary"
+            android:text="00 · 06 · 12 · 18 · 24"
+            android:textSize="9sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvChartHeaderLeft"
+            app:layout_constraintBottom_toBottomOf="@id/tvChartHeaderLeft" />
+
         <!-- Tide Chart -->
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/tideChart"
             android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/spacing_sm"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvStationName" />
-
-        <!-- Divider -->
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/spacing_md"
-            android:background="@color/border_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tideChart" />
+            app:layout_constraintTop_toBottomOf="@id/tvChartHeaderLeft" />
 
         <!-- Tide Events List -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTideEvents"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_marginTop="@dimen/spacing_md"
             android:nestedScrollingEnabled="false"
-            tools:itemCount="4"
             tools:listitem="@layout/item_tide_event"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider1" />
+            app:layout_constraintTop_toBottomOf="@id/tideChart" />
 
         <!-- Loading -->
         <ProgressBar
